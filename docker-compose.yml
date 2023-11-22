@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  node1:
+    build: ./app
+  node2:
+    build: ./app
+  node3:
+    build: ./app
+  loadbalance:
+    image: nginx:alpine
+    volumes:
+      - "./nginx.conf:/etc/nginx/conf.d/nginx.conf"
+    ports:
+      - "8080:80"
